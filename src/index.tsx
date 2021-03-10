@@ -1,8 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+import 'react-native-gesture-handler';
+import { ThemeProvider } from 'styled-components';
+import Routes from './routes';
+import { primary } from './themes';
 
-const src: React.FC = () => {
-  return <View />;
+const App: React.FC = () => {
+  return (
+    <ThemeProvider theme={primary}>
+      <Routes/>
+    </ThemeProvider>
+  );
 }
 
-export default src;
+export default App;
