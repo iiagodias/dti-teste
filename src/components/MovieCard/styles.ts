@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.TouchableOpacity`
   background-color: white;
   width: 48%;
-  height: 220px;
+  height: 245px;
   margin-bottom: 15px;
   border: 1px solid ${({ theme }) => theme.silverSand};
   border-radius: 5px;
@@ -26,4 +26,11 @@ export const Title = styled.Text`
   font-size: 16px;
   color: ${({ theme }) => theme.tundora};
   margin-bottom: 10px;
+`;
+
+export const NumberRating = styled.Text`
+  font-size: 16px;
+  color: ${({ theme }) => theme.tundora};
+  text-align: center;
+  margin-top: 5px;
 `;
