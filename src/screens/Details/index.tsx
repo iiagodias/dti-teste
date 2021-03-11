@@ -6,8 +6,8 @@ import IconStar from 'react-native-vector-icons/MaterialIcons';
 import { DefaultTheme, withTheme } from 'styled-components';
 import {
   Body, BoxData, BoxIcon,
-  BoxStar, BoxYear, Container, ContainerData,
-  Header, Hr, Poser, Scroll, Text, TextYear, Title, TitleHr
+  BoxRating, BoxStar, BoxYear, Container, ContainerData,
+  Header, Hr, Poser, Scroll, Text, TextRating, TextYear, Title, TitleHr
 } from './styles';
 
 interface DetailsProps {
@@ -89,6 +89,15 @@ const Details: React.FC<DetailsProps> = ({theme}) => {
           <Text>
             Marcos Palmeira, Flávia Alessandra, Lívia Falcão, Fernanda Paes Leme
           </Text>
+
+          <Hr>
+           <TitleHr>Avaliações</TitleHr>
+          </Hr>
+          <BoxRating>
+            <TextRating>Internet Movie Database</TextRating>
+            <TextRating>6.6/10</TextRating>
+          </BoxRating>
+
         </Body>
       </Scroll>
     </Container>

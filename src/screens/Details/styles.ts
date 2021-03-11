@@ -88,3 +88,18 @@ export const BoxStar = styled.View`
   padding: 20px;
   align-items: center;
 `;
+
+export const BoxRating = styled.View`
+  border: 1px solid ${({ theme }) => theme.primary};
+  padding: 10px;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+export const TextRating = styled.Text`
+  font-size: 17px;
+  color: ${({ theme }) => theme.secondary};
+`;
