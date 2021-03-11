@@ -10,12 +10,12 @@ import {
   Header, Hr, Poser, Scroll, Text, TextRating, TextYear, Title, TitleHr
 } from './styles';
 
-interface DetailsProps {
+interface IDetailsProps {
   theme: DefaultTheme
 }
 
 
-const Details: React.FC<DetailsProps> = ({theme}) => {
+const Details: React.FC<IDetailsProps> = ({theme}) => {
   const navigation = useNavigation();
 
   return (

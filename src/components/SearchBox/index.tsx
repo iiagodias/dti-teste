@@ -3,11 +3,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { DefaultTheme, withTheme } from 'styled-components';
 import { Container, ContainerSearch, Input, InputMask } from './styles';
 
-interface PropsSearchBox{
+interface ISearchBoxProps{
   theme: DefaultTheme
 }
 
-const SearchBox: React.FC<PropsSearchBox> = ({theme}) => {
+const SearchBox: React.FC<ISearchBoxProps> = ({theme}) => {
   return (
     <Container>
       <Input

@@ -5,11 +5,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { DefaultTheme, withTheme } from 'styled-components';
 import { BoxData, Container, NumberRating, Poster, Title } from './styles';
 
-interface MovieCardProps {
+interface IMovieCardProps {
   theme: DefaultTheme
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({theme}) => {
+const MovieCard: React.FC<IMovieCardProps> = ({theme}) => {
   const navigation = useNavigation();
 
   return (
