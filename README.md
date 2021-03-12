@@ -1,8 +1,8 @@
 
 ## Dev
 
-Nome: Iago Dias
-E-mail: iago.unama@hotmail.com
+- Nome: Iago Dias
+- E-mail: iago.unama@hotmail.com
 
 ## Demo
 
