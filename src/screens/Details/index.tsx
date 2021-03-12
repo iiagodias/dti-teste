@@ -19,11 +19,11 @@ type RootStackParamList = {
   Details: {movie: IMovie};
 };
 
-type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
+type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
 
 const Details: React.FC<IDetailsProps> = ({theme}) => {
   const navigation = useNavigation();
-  const route = useRoute<ProfileScreenRouteProp>();
+  const route = useRoute<DetailsScreenRouteProp>();
   const { movie } = route.params;
 
   return (
