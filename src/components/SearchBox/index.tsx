@@ -16,7 +16,8 @@ const SearchBox: React.FC<ISearchBoxProps> = ({theme}) => {
 
   const searchMovie = () =>{
     if(title == ''){
-      Alert.alert('Aviso', 'Digíte o titulo.')
+      Alert.alert('Aviso', 'Digite o título do filme.');
+      return;
     }
     dispatch(MoviesActions.GetMovieRequest(title, year));
   }

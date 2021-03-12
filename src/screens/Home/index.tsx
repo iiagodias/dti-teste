@@ -2,14 +2,17 @@ import _ from 'lodash';
 import React, { useCallback, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
+import { DefaultTheme, withTheme } from 'styled-components';
 import MovieCard from '../../components/MovieCard';
 import SearchBox from '../../components/SearchBox';
 import { IAplicationStates } from '../../stores';
 import { Body, BoxLoading, Container, ContainerOrder, ContainerOrderButton, Orderby, Scroll, TypeOrder } from './styles';
 
+interface IHomeProps {
+  theme: DefaultTheme
+}
 
-
-const Home: React.FC = () => {
+const Home: React.FC<IHomeProps> = ({theme}) => {
   const [order, setOrder] = useState<boolean | "asc" | "desc">('asc');
   const [typOrder, setTypeOrder] = useState<string>('Title');
   const {loading, data} = useSelector((state: IAplicationStates) => state.movies);
@@ -43,7 +46,7 @@ const Home: React.FC = () => {
             )
             :
             <BoxLoading>
-              <ActivityIndicator size="large" />
+              <ActivityIndicator size="large" color={theme.secondary} />
             </BoxLoading>
           }
         </Body>
@@ -52,4 +55,4 @@ const Home: React.FC = () => {
   );
 }
 
-export default Home;
+export default withTheme(Home);

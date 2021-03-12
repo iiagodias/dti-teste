@@ -33,7 +33,7 @@ export const ContainerData = styled.View`
 
 export const BoxData = styled.View`
   width: 48%;
-  height: 220px;
+  height: 260px;
 `;
 
 export const Poser = styled.Image`
