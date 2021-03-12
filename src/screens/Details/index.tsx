@@ -3,7 +3,7 @@ import React from 'react';
 import Stars from 'react-native-stars';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconStar from 'react-native-vector-icons/MaterialIcons';
-import { DefaultTheme, withTheme } from 'styled-components';
+import { DefaultTheme, withTheme } from 'styled-components/native';
 import { IMovie } from '../../stores/ducks/movies/types';
 import {
   Body, BoxData, BoxIcon,

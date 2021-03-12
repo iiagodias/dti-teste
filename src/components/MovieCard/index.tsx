@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { memo } from 'react';
 import Stars from 'react-native-stars';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { DefaultTheme, withTheme } from 'styled-components';
+import { DefaultTheme, withTheme } from 'styled-components/native';
 import { IMovie } from '../../stores/ducks/movies/types';
 import { BoxData, Container, NumberRating, Poster, Title } from './styles';
 
@@ -18,7 +18,7 @@ const MovieCard: React.FC<IMovieCardProps> = ({theme, poster, title, rating, mov
   const navigation = useNavigation();
 
   return (
-    <Container onPress={() => navigation.navigate('Details', {movie:movie})}>
+    <Container testID="movie-card" onPress={() => navigation.navigate('Details', {movie:movie})}>
       <Poster source={{uri: poster != 'N/A' ? poster : undefined }} />
       <BoxData>
         <Title numberOfLines={2} ellipsizeMode='tail'>{title}</Title>

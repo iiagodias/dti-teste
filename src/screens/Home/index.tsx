@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useCallback, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
-import { DefaultTheme, withTheme } from 'styled-components';
+import { DefaultTheme, withTheme } from 'styled-components/native';
 import MovieCard from '../../components/MovieCard';
 import SearchBox from '../../components/SearchBox';
 import { IAplicationStates } from '../../stores';
