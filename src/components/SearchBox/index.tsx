@@ -27,7 +27,6 @@ const SearchBox: React.FC<ISearchBoxProps> = ({theme}) => {
       <Input
        value={title}
        onChangeText={(text) => setTitle(text)}
-       testID="input-title"
        placeholder="Digite o nome" />
       <InputMask
        value={year}
