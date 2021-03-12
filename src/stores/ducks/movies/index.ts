@@ -2,7 +2,7 @@ import { createActions, createReducer } from 'reduxsauce';
 import { ICreators, IGetMovieSuccessAction, IMoviesState, ITypes } from './types';
 
 export const { Types, Creators } = createActions<ITypes, ICreators>({
-  GetMovieRequest: [],
+  GetMovieRequest: ['title', 'year'],
   GetMovieSuccess: ['data'],
   GetMovieFailed: [],
 });
@@ -21,12 +21,12 @@ const getMovieRequest = (state = INITIAL_STATE) => ({
 const getMovieSuccess = (state = INITIAL_STATE, action: IGetMovieSuccessAction) => ({
   ...state,
   data: action.data,
-  loading: true
+  loading: false
 });
 
 const getMovieFailed = (state = INITIAL_STATE) => ({
   ...state,
-  loading: true
+  loading: false
 });
 
 

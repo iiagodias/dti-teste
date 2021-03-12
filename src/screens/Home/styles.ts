@@ -32,3 +32,9 @@ export const Orderby = styled.Text`
  font-size: 16px;
  color: ${({ theme }) => theme.secondary};
 `;
+
+
+export const BoxLoading = styled.View`
+  align-items: center;
+  width: 100%;
+`;

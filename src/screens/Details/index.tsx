@@ -1,9 +1,10 @@
-import { useNavigation } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React from 'react';
 import Stars from 'react-native-stars';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconStar from 'react-native-vector-icons/MaterialIcons';
 import { DefaultTheme, withTheme } from 'styled-components';
+import { IMovie } from '../../stores/ducks/movies/types';
 import {
   Body, BoxData, BoxIcon,
   BoxRating, BoxStar, BoxYear, Container, ContainerData,
@@ -14,9 +15,16 @@ interface IDetailsProps {
   theme: DefaultTheme
 }
 
+type RootStackParamList = {
+  Details: {movie: IMovie};
+};
+
+type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
 
 const Details: React.FC<IDetailsProps> = ({theme}) => {
   const navigation = useNavigation();
+  const route = useRoute<ProfileScreenRouteProp>();
+  const { movie } = route.params;
 
   return (
     <Container>
@@ -29,29 +37,29 @@ const Details: React.FC<IDetailsProps> = ({theme}) => {
         <Body>
           <ContainerData>
             <BoxData>
-              <Poser source={{uri: 'https://m.media-amazon.com/images/M/MV5BNTU4ODY0MDgtODg4Mi00ODE3LWIyZTctOWZiM2RjNWM2YmM1XkEyXkFqcGdeQXVyOTU3ODk4MQ@@._V1_SX300.jpg'}} />
+              <Poser source={{uri: movie.Poster != 'N/A' ? movie.Poster : undefined }} />
             </BoxData>
             <BoxData>
-                <Title>O Homem Que Desafiou o Diabo</Title>
+                <Title>{movie.Title}</Title>
                 <BoxYear>
-                  <TextYear>2019</TextYear>
+                  <TextYear>{movie.Year}</TextYear>
                 </BoxYear>
                 <Text>
-                 <Title>Diretor:</Title> Moacyr Góes
+                 <Title>Diretor:</Title> {movie.Director}
                 </Text>
                 <Text>
-                  <Title>Linguagem:</Title> Portuguese
+                  <Title>Linguagem:</Title> {movie.Language}
                 </Text>
                 <Text>
-                  <Title>Tempo de duração:</Title> 106 min
+                  <Title>Tempo de duração:</Title> {movie.Runtime}
                 </Text>
             </BoxData>
           </ContainerData>
 
           <BoxStar>
-            <Text>3.5</Text>
+            <Text>{movie.imdbRating}</Text>
             <Stars
-              default={3.5}
+              default={parseFloat(movie.imdbRating)}
               half={true}
               starSize={25}
               disabled={true}
@@ -66,38 +74,39 @@ const Details: React.FC<IDetailsProps> = ({theme}) => {
            <TitleHr>Sinopse</TitleHr>
           </Hr>
           <Text>
-            In the Northeastern of Brazil, the wolf traveling salesman of fabric José Araújo arrives at Jardim dos Caiacós and succeeds in selling his merchandise to the Turkish Turco. He goes to a ball to celebrate the business and he meets Dualiba, the forty and something year-old virgin daughter of Turco. He shags Dualiba and she tells her father what happened, and José Araújo is forced to marry her. When the resigned Araújo discovers that he is the motive of joke in the town, he changes his name to Ojuara and becomes a fearless lonely rider though the countryside of Northeastern to the paradisiacal São Sarué. Along his journey, his name becomes a legend that has defeated the devil and many bullies. He meets the gorgeous Jacirene a.k.a. Genifer in a brothel; the circus acrobat in the trapeze Sue; the evil Mãe de Pantanha and her \"vagina dentata\" (\"toothed vagina\"); and the daughter of a powerful farmer Eleonora.
+            {movie.Plot}
           </Text>
 
           <Hr>
            <TitleHr>Gênero</TitleHr>
           </Hr>
           <Text>
-            Comedy, Fantasy
+            {movie.Genre}
           </Text>
 
           <Hr>
            <TitleHr>Roteiro</TitleHr>
           </Hr>
           <Text>
-            Moacyr Góes, Bráulio Tavares, Nei Leandro de Castro
+            {movie.Writer}
           </Text>
 
           <Hr>
            <TitleHr>Atores</TitleHr>
           </Hr>
           <Text>
-            Marcos Palmeira, Flávia Alessandra, Lívia Falcão, Fernanda Paes Leme
+           {movie.Actors}
           </Text>
 
           <Hr>
            <TitleHr>Avaliações</TitleHr>
           </Hr>
-          <BoxRating>
-            <TextRating>Internet Movie Database</TextRating>
-            <TextRating>6.6/10</TextRating>
-          </BoxRating>
-
+          {movie.Ratings.map((item, key) =>
+            <BoxRating key={key}>
+              <TextRating>{item.Source}</TextRating>
+              <TextRating>{item.Value}</TextRating>
+            </BoxRating>
+          )}
         </Body>
       </Scroll>
     </Container>

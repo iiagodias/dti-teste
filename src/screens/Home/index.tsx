@@ -1,12 +1,13 @@
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
 import MovieCard from '../../components/MovieCard';
 import SearchBox from '../../components/SearchBox';
 import { IAplicationStates } from '../../stores';
-import { Body, Container, ContainerOrder, ContainerOrderButton, Orderby, Scroll, TypeOrder } from './styles';
+import { Body, BoxLoading, Container, ContainerOrder, ContainerOrderButton, Orderby, Scroll, TypeOrder } from './styles';
 
 const Home: React.FC = () => {
-  const {data} = useSelector((state: IAplicationStates) => state.movies);
+  const {loading, data} = useSelector((state: IAplicationStates) => state.movies);
 
   return (
     <Container>
@@ -21,9 +22,16 @@ const Home: React.FC = () => {
       </ContainerOrder>
       <Scroll>
         <Body>
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
+
+          {!loading ?
+            data.map((movie) =>
+             <MovieCard poster={movie.Poster} title={movie.Title} rating={movie.imdbRating} movie={movie} />
+            )
+            :
+            <BoxLoading>
+              <ActivityIndicator size="large" />
+            </BoxLoading>
+          }
         </Body>
       </Scroll>
     </Container>
