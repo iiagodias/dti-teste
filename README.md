@@ -28,10 +28,11 @@ Primeiramente vamos instalar todas nossas dependencias, rode o seguinte comando 
 yarn
 ```
 
-####iOS
+#### iOS
+
 Para compilar iOs você precisa dos seguintes comandos:
 
- Dentro da pasta ios:
+Dentro da pasta ios:
  ```sh
 pod install
 ```
@@ -45,7 +46,7 @@ react-native run-ios
 
 
 
-####Android
+#### Android
 Para compilar Android você precisa do seguinte comando:
 
 Na raiz do projeto:
