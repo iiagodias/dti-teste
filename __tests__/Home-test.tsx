@@ -20,7 +20,7 @@ const AllTheProviders: React.FC = ({ children }) => {
 }
 
 
- it('Theme styled component and redux', async () => {
+ it('Theme styled component and redux', () => {
     const {toJSON} = render(<Home />, {wrapper: AllTheProviders});
 
     expect(toJSON()).toMatchSnapshot()
