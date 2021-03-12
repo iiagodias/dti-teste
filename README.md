@@ -1,4 +1,9 @@
 
+## Dev
+
+Nome: Iago Dias
+E-mail: iago.unama@hotmail.com
+
 ## Demo
 
 ![](./src/assets/image/mo.gif)
