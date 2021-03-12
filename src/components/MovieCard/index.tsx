@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { memo } from 'react';
 import Stars from 'react-native-stars';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { DefaultTheme, withTheme } from 'styled-components';
@@ -41,4 +41,4 @@ const MovieCard: React.FC<IMovieCardProps> = ({theme, poster, title, rating, mov
   );
 }
 
-export default withTheme(MovieCard);
+export default memo(withTheme(MovieCard));
